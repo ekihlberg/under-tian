@@ -1,0 +1,63 @@
+/**
+ Theme Name: Portfolio
+ Theme URI: http://ekihlberg.se/
+ Author: Emma Kihlberg
+ Author URI: http://ekihlberg.se/
+ Description: A custom buildt theme for the website undertian.com, a food site with recepies under 10 SEK a portion.
+
+**/
+body {
+  background-color: #cacaca; }
+
+a {
+  text-decoration: none;
+  color: black; }
+
+html, body {
+  margin: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Josefin Sans', sans-serif; }
+
+p {
+  font-family: sans-serif; }
+
+header {
+  background-color: #fff;
+  margin: 0 0 20px 0;
+  overflow: hidden; }
+  header #logo_link {
+    float: left;
+    overflow: hidden;
+    padding: 10px; }
+    header #logo_link .logo {
+      width: 300px;
+      margin: 10px; }
+  header #header_content {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1000px; }
+  header .top-menu {
+    overflow: hidden;
+    float: right;
+    margin-top: 30px; }
+  header ul li {
+    list-style: none;
+    float: left;
+    padding: 10px;
+    font-family: 'Josefin Sans', sans-serif; }
+    header ul li a {
+      color: #3b8581;
+      text-decoration: none;
+      font-size: 18pt; }
+
+#content_container {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1000px;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 30px; }
+
+.post {
+  padding: 5px; }
