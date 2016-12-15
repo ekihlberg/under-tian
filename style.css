@@ -6,8 +6,15 @@
  Description: A custom buildt theme for the website undertian.com, a food site with recepies under 10 SEK a portion.
 
 **/
+/** --------------------------------------------------------
+ General styles
+--------------------------------------------------------*/
+html {
+  height: 100%; }
+
 body {
-  background-color: #cacaca; }
+  background-color: #e7e7e7;
+  height: 100%; }
 
 a {
   text-decoration: none;
@@ -17,30 +24,97 @@ html, body {
   margin: 0; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Josefin Sans', sans-serif; }
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 300; }
 
 p {
   font-family: sans-serif; }
 
+#content_container {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1000px;
+  box-sizing: border-box;
+  overflow: hidden; }
+
+.post {
+  padding: 5px 10px;
+  margin-top: 30px;
+  background-color: #ffffff; }
+  .post img {
+    max-width: 100%;
+    height: auto; }
+  .post h2 {
+    text-align: center;
+    padding: 20px 0; }
+  .post p {
+    padding: 0px 40px; }
+
+.comments-area ul, .comments-area ol {
+  list-style: none;
+  font-family: sans-serif; }
+
+.children {
+  background-color: red;
+  padding: 0;
+  margin-left: 20px; }
+
+/** --------------------------------------------------------
+  Header
+--------------------------------------------------------*/
 header {
-  background-color: #fff;
-  margin: 0 0 20px 0;
+  background-color: #ffffff;
   overflow: hidden; }
   header #logo_link {
     float: left;
     overflow: hidden;
-    padding: 10px; }
+    padding: 10px;
+    padding-left: 0; }
     header #logo_link .logo {
-      width: 300px;
-      margin: 10px; }
+      width: 225px;
+      margin: 10px;
+      margin-left: 0; }
   header #header_content {
     width: 90%;
     margin: 0 auto;
-    max-width: 1000px; }
+    max-width: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+  header .header-menu {
+    display: flex;
+    align-items: center;
+    margin-top: 20px; }
   header .top-menu {
-    overflow: hidden;
-    float: right;
-    margin-top: 30px; }
+    overflow: hidden; }
+    header .top-menu ul {
+      overflow: hidden;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      padding-left: 0px; }
+  header .searchbutton {
+    background-size: cover;
+    height: 20px;
+    width: 20px;
+    display: block;
+    margin-left: 10px;
+    cursor: pointer; }
+  header .searchbar {
+    width: 100%;
+    margin: auto; }
+    header .searchbar input[type="search"] {
+      color: #ffffff;
+      background-color: #3b8581;
+      height: 40px;
+      width: 100%;
+      padding: 30px 30%;
+      float: right;
+      border-radius: 0;
+      border: 0;
+      font-family: "Josefin Sans", sans-serif;
+      font-size: 30px; }
+  header #hide {
+    display: none; }
   header ul li {
     list-style: none;
     float: left;
@@ -49,15 +123,401 @@ header {
     header ul li a {
       color: #3b8581;
       text-decoration: none;
-      font-size: 18pt; }
+      font-size: 15pt; }
+    header ul li ul {
+      padding: 0;
+      position: absolute;
+      max-height: 0;
+      transition: max-height .2s ease; }
+      header ul li ul li {
+        float: none;
+        background-color: #ffffff;
+        padding-left: -5px; }
+  header ul li:hover ul {
+    padding: 0;
+    max-height: 700px;
+    z-index: 100; }
 
-#content_container {
+/** --------------------------------------------------------
+ Front page
+ --------------------------------------------------------*/
+.fp-image {
+  height: 70vh;
+  width: 100%;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative; }
+  .fp-image h1 {
+    margin: 0;
+    padding: 0;
+    color: #ffffff; }
+  .fp-image .fp-image-text {
+    position: absolute;
+    z-index: 2;
+    left: calc(50vw - 500px);
+    max-width: 1000px;
+    height: 30%;
+    top: calc(35vh - 15%); }
+    .fp-image .fp-image-text h1 {
+      font-size: 7vh;
+      font-weight: 700; }
+    .fp-image .fp-image-text p {
+      max-width: 600px;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 2vh;
+      padding: 0 0 15px;
+      font-weight: 300; }
+    .fp-image .fp-image-text a {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.6);
+      padding: 12px 50px;
+      font-family: "Josefin Sans", sans-serif;
+      text-transform: uppercase;
+      font-weight: 300; }
+    .fp-image .fp-image-text a:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+      font-weight: 400; }
+
+.fp-image:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  top: 0;
+  left: 0; }
+
+.fp-menu {
+  display: flex;
+  background-color: #ffffff;
+  align-items: center; }
+  .fp-menu .fp-menu-image {
+    width: 60%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 320px; }
+  .fp-menu .fp-menu-text {
+    width: 40%;
+    padding: 40px; }
+    .fp-menu .fp-menu-text p {
+      text-align: justify;
+      margin: 20px 0; }
+    .fp-menu .fp-menu-text h3 {
+      text-align: right;
+      font-size: 28px;
+      margin: 0; }
+
+/** --------------------------------------------------------
+ Latest recipe
+ --------------------------------------------------------*/
+.latest-recipe {
+  overflow: hidden;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  background-color: #ffffff; }
+  .latest-recipe h2 {
+    text-align: center;
+    font-size: 30px; }
+  .latest-recipe .recipe-show {
+    overflow: hidden; }
+  .latest-recipe .latest-recipe-show {
+    width: 25%;
+    float: left; }
+    .latest-recipe .latest-recipe-show img {
+      width: 100%;
+      height: auto; }
+    .latest-recipe .latest-recipe-show h3 {
+      text-align: center;
+      padding: 30% 5% 60%;
+      position: relative;
+      z-index: 10;
+      font-size: 20pt;
+      opacity: 0; }
+      .latest-recipe .latest-recipe-show h3 a {
+        color: #ffffff; }
+    .latest-recipe .latest-recipe-show .latest-recipe-img {
+      width: 100%;
+      height: 18vw;
+      background-size: cover;
+      background-position: center center;
+      position: relative; }
+      .latest-recipe .latest-recipe-show .latest-recipe-img .latest-recipe-img-text {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        z-index: 10; }
+      .latest-recipe .latest-recipe-show .latest-recipe-img .latest-recipe-img-text:hover {
+        background-color: rgba(0, 0, 0, 0.5); }
+      .latest-recipe .latest-recipe-show .latest-recipe-img .latest-recipe-img-text:hover h3 {
+        opacity: 1; }
+
+/** --------------------------------------------------------
+social-icons
+ --------------------------------------------------------*/
+.social-icons {
+  width: 100%;
+  background-color: #ffffff;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-around; }
+  .social-icons a {
+    float: left;
+    padding: 20px;
+    text-align: center; }
+    .social-icons a img {
+      height: 40px;
+      opacity: .6; }
+
+/** --------------------------------------------------------
+ Front page
+ --------------------------------------------------------*/
+footer .content {
   width: 90%;
   margin: 0 auto;
   max-width: 1000px;
-  background-color: #fff;
-  box-sizing: border-box;
-  padding: 30px; }
+  overflow: hidden; }
 
-.post {
-  padding: 5px 10px; }
+footer a {
+  color: rgba(255, 255, 255, 0.5); }
+
+footer .main-footer {
+  background-color: rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  margin-top: 40px; }
+  footer .main-footer .logo {
+    margin: 0 auto;
+    display: block;
+    width: 70px;
+    opacity: 0.4;
+    padding: 30px; }
+  footer .main-footer .menu {
+    text-align: center;
+    padding-left: 0;
+    margin-bottom: 30px; }
+    footer .main-footer .menu ul {
+      list-style: none; }
+      footer .main-footer .menu ul li {
+        display: inline;
+        padding-left: 30px;
+        color: rgba(255, 255, 255, 0.2);
+        font-family: "Josefin Sans", sans-serif;
+        font-weight: 200; }
+      footer .main-footer .menu ul li:nth-child(1) {
+        padding-left: 0px; }
+
+footer .credit-footer {
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.8); }
+  footer .credit-footer p {
+    float: left;
+    color: rgba(255, 255, 255, 0.2);
+    font-weight: 300;
+    font-size: 9pt;
+    padding: 10px; }
+    footer .credit-footer p span {
+      color: pink; }
+  footer .credit-footer .copyright {
+    float: right; }
+
+/** --------------------------------------------------------
+  recipes page
+  --------------------------------------------------------*/
+.top-recipes {
+  margin-top: 40px; }
+  .top-recipes .top-recipe-img {
+    width: 50%;
+    float: left;
+    margin: 0;
+    height: 230px;
+    background-size: cover;
+    background-position: center center;
+    position: relative; }
+    .top-recipes .top-recipe-img .text {
+      text-align: center;
+      background-color: transparent; }
+      .top-recipes .top-recipe-img .text h3 {
+        margin: 0;
+        opacity: 0; }
+      .top-recipes .top-recipe-img .text a {
+        color: #ffffff;
+        line-height: 230px; }
+    .top-recipes .top-recipe-img .text:hover {
+      background-color: rgba(0, 0, 0, 0.5); }
+      .top-recipes .top-recipe-img .text:hover h3 {
+        opacity: 1; }
+
+.recipes {
+  width: calc((100% - 40px)/3);
+  float: left;
+  margin: 20px 0px 20px 20px; }
+  .recipes figure {
+    margin: 0;
+    background-color: #ffffff; }
+    .recipes figure .recipe-img {
+      height: 200px;
+      background-size: cover;
+      background-position: center center; }
+    .recipes figure figcaption {
+      text-align: center;
+      padding: 20px;
+      font-family: "Josefin Sans", sans-serif;
+      font-size: 20px;
+      height: 50px; }
+      .recipes figure figcaption a {
+        text-align: center; }
+
+.recipes:nth-child(3n-2) {
+  margin-left: 0px; }
+
+.recipes:last-child {
+  clear: right; }
+
+#meny {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px -10px -10px -10px; }
+  #meny h3 {
+    text-align: center;
+    margin-bottom: 5px; }
+  #meny div {
+    width: calc(100%/7); }
+    #meny div img {
+      width: 100%; }
+
+/** --------------------------------------------------------
+  Contact page
+  --------------------------------------------------------*/
+.contact-page .contact-content {
+  background-color: #ffffff;
+  margin-top: 40px;
+  height: 550px;
+  overflow: hidden; }
+  .contact-page .contact-content div {
+    float: left; }
+  .contact-page .contact-content .contact-content-text {
+    width: 45%;
+    padding: 40px;
+    box-sizing: border-box; }
+    .contact-page .contact-content .contact-content-text h2 {
+      text-align: center;
+      color: #3b8581;
+      font-weight: 400;
+      font-size: 28pt;
+      margin: 20px 0px; }
+    .contact-page .contact-content .contact-content-text p {
+      font-family: "Josefin Sans", sans-serif;
+      color: rgba(0, 0, 0, 0.6);
+      font-size: 14pt; }
+    .contact-page .contact-content .contact-content-text input:focus, .contact-page .contact-content .contact-content-text textarea:focus {
+      outline: none; }
+    .contact-page .contact-content .contact-content-text input[type="text"], .contact-page .contact-content .contact-content-text input[type="email"], .contact-page .contact-content .contact-content-text textarea {
+      width: 100%;
+      border: 0;
+      height: 40px;
+      border-bottom: solid 1px rgba(0, 0, 0, 0.6);
+      font-family: "Josefin Sans", sans-serif;
+      font-size: 13pt;
+      margin-bottom: 20px; }
+    .contact-page .contact-content .contact-content-text textarea {
+      height: 100px;
+      border: 0; }
+
+.contact-page .contact-deco-img {
+  width: 55%;
+  height: 100%;
+  background-position: 79% 40%;
+  background-repeat: no-repeat;
+  background-size: 161%; }
+
+input[type="submit"], .button {
+  width: 100%;
+  border: 0;
+  height: 40px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 13pt;
+  color: #ffffff;
+  text-transform: uppercase;
+  line-height: 40px;
+  font-weight: 300;
+  border-radius: 0;
+  padding: 0;
+  background-color: #e7e7e7; }
+
+input[type="submit"]:hover, .button:hover {
+  background-color: #3b8581; }
+
+.button {
+  text-align: center; }
+
+.category {
+  margin: 40px 0;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: #3b8581; }
+  .category li {
+    font-family: "Josefin Sans", sans-serif;
+    width: 25%;
+    background-color: #3b8581;
+    height: 50px;
+    display: flex;
+    text-transform: uppercase;
+    font-weight: 100; }
+    .category li a {
+      margin: auto;
+      color: #ffffff; }
+
+.post-type-archive-menu .post {
+  padding: 0; }
+  .post-type-archive-menu .post p {
+    padding: 0; }
+
+.post-type-archive-menu .post:nth-child(2n) .fp-menu {
+  flex-direction: row-reverse; }
+
+.screen-reader-text {
+  display: none; }
+
+.next .page-numbers {
+  padding: 4px 9px 4px 9px; }
+
+.page-numbers {
+  background-color: #ffffff;
+  list-style: none;
+  font-family: "Josefin Sans", sans-serif;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 0; }
+
+.page-numbers li {
+  padding: 5px;
+  margin: 10px;
+  background-color: #ffffff; }
+
+body, html {
+  height: 100%; }
+
+.st_page {
+  height: auto; }
+  .st_page .contact-content {
+    height: auto; }
+    .st_page .contact-content .contact-deco-img {
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 550px;
+      width: 50%; }
+    .st_page .contact-content .contact-content-text {
+      width: 50%; }
+
+@media screen and (min-width: 1100px) {
+  .latest-recipe .latest-recipe-show .latest-recipe-img {
+    height: 250px; } }
